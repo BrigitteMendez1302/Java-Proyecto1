@@ -10,6 +10,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.Scanner;
 
+/**
+ * Main application class for managing customers and bank accounts through a console interface.
+ * Implements CommandLineRunner to provide a menu-driven interface for various banking operations.
+ */
 @SpringBootApplication
 public class Main implements CommandLineRunner {
 
@@ -19,10 +23,21 @@ public class Main implements CommandLineRunner {
     @Autowired
     private BankAccountService bankAccountService;
 
+    /**
+     * Main method to launch the Spring Boot application.
+     *
+     * @param args Application arguments.
+     */
     public static void main(String[] args) {
         SpringApplication.run(Main.class, args);
     }
 
+    /**
+     * Runs the application, displaying a menu for user interaction.
+     * 
+     * @param args Application arguments.
+     * @throws Exception if an error occurs during execution.
+     */
     @Override
     public void run(String... args) throws Exception {
         Scanner scanner = new Scanner(System.in);
@@ -64,6 +79,11 @@ public class Main implements CommandLineRunner {
         }
     }
 
+    /**
+     * Registers a new customer by prompting the user for personal details.
+     *
+     * @param scanner Scanner for console input.
+     */
     private void registerCustomer(Scanner scanner) {
         System.out.print("Enter first name: ");
         String firstName = scanner.nextLine();
@@ -82,17 +102,22 @@ public class Main implements CommandLineRunner {
         }
     }
 
+    /**
+     * Opens a bank account for an existing customer, specifying the account type.
+     *
+     * @param scanner Scanner for console input.
+     */
     private void openBankAccount(Scanner scanner) {
         System.out.print("Enter customer ID: ");
         Long customerId = scanner.nextLong();
         scanner.nextLine();  // Clear newline
 
-        // Verificar si el cliente existe antes de continuar
+        // Check if client exists before continue
         try {
             var customer = customerService.getCustomerById(customerId);
             System.out.println("Customer found: " + customer);
 
-            // Continuar con el proceso de apertura de cuenta bancaria
+            // Continue with the process
             System.out.print("Enter account type (1 for SAVINGS, 2 for CHECKING): ");
             int accountTypeChoice = scanner.nextInt();
             scanner.nextLine();
@@ -106,7 +131,11 @@ public class Main implements CommandLineRunner {
         }
     }
 
-
+    /**
+     * Deposits money into an existing bank account.
+     *
+     * @param scanner Scanner for console input.
+     */
     private void depositMoney(Scanner scanner) {
         System.out.print("Enter account number: ");
         String accountNumber = scanner.nextLine();
@@ -122,6 +151,11 @@ public class Main implements CommandLineRunner {
         }
     }
 
+    /**
+     * Withdraws money from an existing bank account, with validation checks.
+     *
+     * @param scanner Scanner for console input.
+     */
     private void withdrawMoney(Scanner scanner) {
         System.out.print("Enter account number: ");
         String accountNumber = scanner.nextLine();
@@ -137,6 +171,11 @@ public class Main implements CommandLineRunner {
         }
     }
 
+    /**
+     * Checks the balance of an existing bank account.
+     *
+     * @param scanner Scanner for console input.
+     */
     private void checkBalance(Scanner scanner) {
         System.out.print("Enter account number: ");
         String accountNumber = scanner.nextLine();
