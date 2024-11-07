@@ -34,7 +34,7 @@ Este proyecto es una aplicación de consola desarrollada en **Java** con **Sprin
 1. **Clona el Repositorio**:
 
    ```bash
-   git clone [https://github.com/tu_usuario/tu_repositorio.git](https://github.com/BrigitteMendez1302/Java-Proyecto1)
+   git clone https://github.com/tu_usuario/tu_repositorio.git
    cd Java_Proyecto1
    ```
    
@@ -52,15 +52,15 @@ Abre el archivo `src/main/resources/application.properties` y reemplaza los valo
 
 ```properties
 spring.datasource.url=jdbc:mysql://localhost:3306/bank_management?useSSL=false&serverTimezone=UTC
-spring.datasource.username=bank_user
-spring.datasource.password=password
+spring.datasource.username=
+spring.datasource.password=
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
 spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
 ```
 
-4. **Instala las Dependencias y Compila el Proyecto
+4. **Instala las Dependencias y Compila el Proyecto**
 
 Ejecuta el siguiente comando para compilar el proyecto:
 
@@ -68,7 +68,7 @@ Ejecuta el siguiente comando para compilar el proyecto:
 mvn clean package
 ```
 
-5. Ejecución
+5. **Ejecución**
 
 Para ejecutar la aplicación desde la consola:
 
@@ -78,7 +78,7 @@ java -jar target/mi_primera_app-1.0-SNAPSHOT.jar
 
 Esto iniciará la aplicación en modo consola, permitiendo interactuar mediante un menú de opciones.
 
-6. Uso
+6. **Uso**
 
 Una vez que la aplicación esté en ejecución, verás un menú con las siguientes opciones:
 
